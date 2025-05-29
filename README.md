@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Calculadora de Desdobramento
 
-## Getting Started
+Uma aplicação responsiva para calcular desdobramentos de apostas esportivas com versões otimizadas para desktop e mobile.
 
-First, run the development server:
+## Estrutura do Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Componentes Principais
+
+- **`DesdobramentoCalculator.tsx`** - Componente principal que detecta o tamanho da tela e renderiza a versão apropriada
+- **`DesdobramentoCalculatorDesktop.tsx`** - Versão otimizada para desktop com layout em grid e interface expandida
+- **`DesdobramentoCalculatorMobile.tsx`** - Versão otimizada para mobile com interface simplificada e telas empilhadas
+
+### Hooks Personalizados
+
+- **`useMediaQuery.ts`** - Hook para detectar o tamanho da tela e responsividade
+- **`useDesdobramento.ts`** - Hook compartilhado que contém toda a lógica de negócio dos desdobramentos
+
+### Componentes UI
+
+- **`ui/input.tsx`** - Componente de input reutilizável
+- **`ui/button.tsx`** - Componente de botão reutilizável com variantes
+
+## Funcionalidades
+
+### ✨ Principais Features
+
+- **Responsividade Automática**: Detecta automaticamente se é mobile ou desktop
+- **Cálculo de Combinações**: Gera todas as combinações possíveis (8 ou 16)
+- **Marcação de Odds Ganhadoras**: Interface intuitiva para marcar resultados
+- **Persistência Local**: Salva automaticamente no localStorage
+- **Navegação Entre Desdobramentos**: Suporte a múltiplos desdobramentos
+- **Cálculo de Lucro**: Mostra total apostado, ganhos e lucro em tempo real
+
+### 📱 Versão Mobile
+
+- Interface otimizada para toque
+- Layout vertical com cartões
+- Botões grandes para facilitar a interação
+- Resumo financeiro destacado
+- Scroll otimizado para listas longas
+
+### 🖥️ Versão Desktop
+
+- Layout em grid responsivo
+- Interface expandida com mais informações visíveis
+- Melhor aproveitamento do espaço da tela
+- Visualização de múltiplas combinações simultaneamente
+- Navegação mais eficiente
+
+## Como Usar
+
+1. **Criar Desdobramento**:
+
+   - Defina o valor da aposta
+   - Escolha entre 8 (3 jogos) ou 16 (4 jogos) combinações
+   - Insira as odds para cada jogo
+   - Clique em "Calcular"
+
+2. **Marcar Resultados**:
+
+   - Clique nas odds que foram ganhadoras
+   - O sistema automaticamente calcula quais combinações ganharam
+   - Visualize o total de ganhos e lucro
+
+3. **Gerenciar Desdobramentos**:
+   - Navegue entre diferentes desdobramentos
+   - Adicione novos desdobramentos
+   - Conclua desdobramentos finalizados
+
+## Tecnologias
+
+- **React 18** com TypeScript
+- **Next.js 14** (App Router)
+- **Tailwind CSS** para estilização
+- **Custom Hooks** para lógica compartilhada
+- **LocalStorage** para persistência
+
+## Estrutura de Arquivos
+
+```
+src/
+├── app/
+│   ├── page.tsx              # Página principal
+│   ├── layout.tsx            # Layout da aplicação
+│   └── globals.css           # Estilos globais
+├── components/
+│   ├── DesdobramentoCalculator.tsx         # Componente principal responsivo
+│   ├── DesdobramentoCalculatorDesktop.tsx  # Versão desktop
+│   ├── DesdobramentoCalculatorMobile.tsx   # Versão mobile
+│   └── ui/
+│       ├── input.tsx         # Componente Input
+│       └── button.tsx        # Componente Button
+└── hooks/
+    ├── useDesdobramento.ts   # Lógica compartilhada
+    └── useMediaQuery.ts      # Hook de responsividade
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Como Executar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Instalar dependências
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Executar em desenvolvimento
+npm run dev
 
-## Learn More
+# Build para produção
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# Executar produção
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A aplicação estará disponível em `http://localhost:3000`.
